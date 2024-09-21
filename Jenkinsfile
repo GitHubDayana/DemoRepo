@@ -7,10 +7,13 @@ pipeline {
                 git url: 'https://github.com/GitHubDayana/DemoRepo.git', branch: 'main'
             }
         }
-        stage('Build') {
+         stage('Build') {
             steps {
-                // Your build steps here
-                echo 'Building...'
+                // Navigate to the project directory if necessary
+                dir('YourProjectDirectory') {  // Adjust if your .NET project is in a subdirectory
+                    // Build the .NET application
+                    sh 'dotnet build'
+                }
             }
         }
         stage('Test') {

@@ -8,7 +8,7 @@ pipeline {
                      sh '''
                     # Deploy commands go here, for example:
                    cd /var/lib/jenkins/workspace/DotNetPipeline/MyMvcApp
-                   sudo dotnet build
+                  echo "dayana123" |sudo dotnet build
                     '''
                 }
             }
@@ -17,7 +17,7 @@ pipeline {
         stage('Test') {
             steps {
                 script {
-                    sh 'sudo dotnet test'
+                    sh 'echo "dayana123" |sudo dotnet test'
                 }
             }
         }
@@ -25,7 +25,7 @@ pipeline {
         stage('Publish') {
             steps {
                 script {
-                    sh 'sudo dotnet publish  --output ./publish'
+                    sh 'echo "dayana123" |sudo dotnet publish  --output ./publish'
                 }
             }
         }
@@ -34,7 +34,7 @@ pipeline {
             steps {
                 script {
                     // You might want to run it in the background or on a specific port
-                    sh 'sudo dotnet ./publish/MyMvcApp.dll &'
+                    sh 'echo "dayana123" |sudo dotnet ./publish/MyMvcApp.dll &'
                 }
             }
         }

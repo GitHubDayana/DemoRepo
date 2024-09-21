@@ -2,12 +2,6 @@ pipeline {
     agent any 
 
     stages {
-        stage('Clone Repository') {
-            steps {
-                git 'https://github.com/GitHubDayana/DemoRepo.git'
-            }
-        }
-
         stage('Build') {
             steps {
                 script {

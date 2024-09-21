@@ -48,7 +48,11 @@ pipeline {
 
                     // Optionally restart the application or service if it's running
                     // If you're using a systemd service:
-                    sh "sudo systemctl restart MyMvcApp.service"  // Ensure your app service is properly configured
+                    sh "cd /var/www/YourApp"
+                    dir('YourApp') {
+                    // Publish the application
+                    sh 'dotnet MyMvcApp.dll'
+                }
                 }
             }
         }

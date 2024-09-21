@@ -19,9 +19,18 @@ pipeline {
         }
         stage('Test') {
             steps {
-                // Your test steps here
-                echo 'Testing...'
+                dir('MyMvcApp') {
+                    // Run tests
+                    sh 'dotnet test'
+                }
             }
+        }
+        stage('Publish') {
+            steps {
+                dir('MyMvcApp') {
+                    // Publish the application
+                    sh 'dotnet publish -c Release -o ./publish'
+                }
         }
     }
 }

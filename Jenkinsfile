@@ -6,6 +6,7 @@ pipeline {
             steps {
                 script {
                     sh 'cd MyMvcApp'
+                    sh 'cd MyMvcApp'
                     sh 'dotnet --version'
                     sh 'ls -l'
                     sh 'dotnet restore'

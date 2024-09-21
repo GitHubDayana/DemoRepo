@@ -25,13 +25,6 @@ pipeline {
                 }
             }
         }
-        stage('Run') {
-            steps {
-                dir('MyMvcApp') {
-                    sh 'dotnet run'
-                }
-            }
-        }
         stage('Publish') {
             steps {
                 dir('MyMvcApp') {

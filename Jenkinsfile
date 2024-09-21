@@ -1,53 +1,24 @@
 pipeline {
     agent any 
-
     stages {
+        stage('Clone Repository') {
+            steps {
+                // Clone the Git repository
+                git url: 'https://github.com/GitHubDayana/DemoRepo.git', branch: 'main'
+            }
+        }
         stage('Build') {
             steps {
-                script {
-                     sh '''
-                    # Deploy commands go here, for example:
-                   cd /var/lib/jenkins/workspace/DotNetPipeline/MyMvcApp
-                  echo "dayana123" |sudo dotnet build
-                    '''
-                }
+                // Your build steps here
+                echo 'Building...'
             }
         }
-
         stage('Test') {
             steps {
-                script {
-                    sh 'echo "dayana123" |sudo dotnet test'
-                }
+                // Your test steps here
+                echo 'Testing...'
             }
-        }
-
-        stage('Publish') {
-            steps {
-                script {
-                    sh 'echo "dayana123" |sudo dotnet publish  --output ./publish'
-                }
-            }
-        }
-
-        stage('Run') {
-            steps {
-                script {
-                    // You might want to run it in the background or on a specific port
-                    sh 'echo "dayana123" |sudo dotnet ./publish/MyMvcApp.dll &'
-                }
-            }
-        }
-
         }
     }
-
-    post {
-        success {
-            echo 'Pipeline completed successfully!'
-        }
-        failure {
-            echo 'Pipeline failed. Check the logs for more details.'
-        }
-    }
+}
 

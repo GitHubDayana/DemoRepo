@@ -10,7 +10,8 @@ pipeline {
          stage('Build') {
             steps {
                 // Navigate to the project directory if necessary
-                dir('YourProjectDirectory') {  // Adjust if your .NET project is in a subdirectory
+                sh 'cd MyMvcApp'
+                dir('MyMvcApp') {  // Adjust if your .NET project is in a subdirectory
                     // Build the .NET application
                     sh 'dotnet build'
                 }

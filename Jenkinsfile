@@ -5,12 +5,11 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    sh 'cd /var/lib/jenkins/workspace/DotNetPipeline/MyMvcApp'
-                    sh 'pwd'
-                    sh 'dotnet --version'
-                    sh 'ls -l'
-                    sh 'dotnet restore'
-                    sh 'dotnet build'
+                     sh '''
+                    # Deploy commands go here, for example:
+                   cd /var/lib/jenkins/workspace/DotNetPipeline/MyMvcApp
+                   dotnet build
+                    '''
                 }
             }
         }

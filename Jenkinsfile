@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    sh 'cd MyMvcApp'
+                    sh 'cd /var/lib/jenkins/workspace/DotNetPipeline/MyMvcApp'
                     sh 'pwd'
                     sh 'dotnet --version'
                     sh 'ls -l'

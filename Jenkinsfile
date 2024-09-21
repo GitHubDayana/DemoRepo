@@ -7,7 +7,7 @@ pipeline {
                 script {
                     sh 'cd MyMvcApp'
                     sh 'dotnet restore'
-                    sh 'dotnet build --configuration Release'
+                    sh 'dotnet build'
                 }
             }
         }
@@ -15,7 +15,7 @@ pipeline {
         stage('Test') {
             steps {
                 script {
-                    sh 'dotnet test --no-build --configuration Release'
+                    sh 'dotnet test'
                 }
             }
         }
@@ -23,7 +23,7 @@ pipeline {
         stage('Publish') {
             steps {
                 script {
-                    sh 'dotnet publish --configuration Release --output ./publish'
+                    sh 'dotnet publish  --output ./publish'
                 }
             }
         }

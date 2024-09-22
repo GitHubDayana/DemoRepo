@@ -36,8 +36,8 @@ pipeline {
          stage('Restart') {
             steps {
                     // Publish the application
-                    sh 'sudo systemctl restart yourapp'
-                    sh 'sudo systemctl status yourapp'
+                    sh 'systemctl restart yourapp'
+                    sh 'systemctl status yourapp'
         }
     }
 }

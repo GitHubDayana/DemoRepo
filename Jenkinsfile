@@ -33,12 +33,5 @@ pipeline {
                 }
         }
     }
-         stage('Restart') {
-            steps {
-                    // Publish the application
-                    sh 'systemctl restart yourapp'
-                    sh 'systemctl status yourapp'
-        }
-    }
 }
 }

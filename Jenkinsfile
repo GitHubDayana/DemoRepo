@@ -29,6 +29,7 @@ pipeline {
             steps {
                 dir('MyMvcApp') {
                     // Publish the application
+                    sh 'pwd'
                     sh 'dotnet publish -c Release -o ./publish'
                 }
         }

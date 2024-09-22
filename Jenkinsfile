@@ -33,28 +33,12 @@ pipeline {
                 }
         }
     }
-        stage('Deploy to Local') {
+         stage('Restart') {
             steps {
-                script {
-                    // Define the deployment directory
-                    def deployDir = '/var/www/YourApp'
-
-                    // Ensure the deployment directory exists
-                    sh "mkdir -p ${deployDir}"
-
-                    // Remove old files and copy published files
-                    
-                    sh "cp -r /var/lib/jenkins/workspace/Demo/MyMvcApp/publish/* ${deployDir}/"
-
-                    // Optionally restart the application or service if it's running
-                    // If you're using a systemd service:
-                    sh "cd /var/www/YourApp"
-                    dir('YourApp') {
                     // Publish the application
-                    sh 'dotnet MyMvcApp.dll'
-                }
-                }
-            }
+                    sh 'sudo systemctl restart yourapp'
+                    sh 'sudo systemctl status yourapp'
         }
+    }
 }
 }

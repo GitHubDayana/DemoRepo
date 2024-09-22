@@ -31,6 +31,7 @@ pipeline {
                     // Publish the application
                     sh 'pwd'
                     sh 'dotnet publish -c Release -o ./publish'
+                    sh 'echo "Dayana123" | sudo systemctl restart yourapp'
                 }
         }
     }
